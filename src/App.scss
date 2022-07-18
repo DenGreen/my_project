@@ -1,0 +1,78 @@
+@font-face {
+    font-family: "Ubuntu-Medium";
+    font-display: swap;
+    src: url("./fonts/Ubuntu-Medium.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Ubuntu-Bold";
+    font-display: swap;
+    src: url("./fonts/Ubuntu-Bold.woff") format("woff");
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    font-family: "Ubuntu-Medium", "Tahoma", sans-serif;
+    color: #070707;
+}
+
+.row-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inner {
+    width: 940px;
+}
+
+.pagination-box {
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    border-bottom: 1px solid #828282;
+
+    &__item {
+        text-align: center;
+
+        
+
+        a {
+            color: #828282;
+            text-decoration: none;
+            transition: all 0.45s;
+
+            &:hover {
+                color: blue;
+                transform: 3s;
+            }
+        }
+    }
+
+    &__item_active {
+        color: #070707;
+    }
+}
+
+
+
+
+
+
+.header-content {
+    &__logo {
+    }
+    &__slogan {
+    }
+    &__img {
+    }
+}
