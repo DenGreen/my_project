@@ -1,22 +1,31 @@
 @font-face {
-    font-family: "Ubuntu-Medium";
+    font-family: "Norwester";
     font-display: swap;
-    src: url("./fonts/Ubuntu-Medium.woff") format("woff");
+    src: url("./fonts/Norwester.woff") format("woff");
 }
 
 @font-face {
-    font-family: "Ubuntu-Bold";
+    font-family: "PTMono-Regular";
     font-display: swap;
-    src: url("./fonts/Ubuntu-Bold.woff") format("woff");
+    src: url("./fonts/PTMono-Regular.woff") format("woff");
 }
+
+$text-color: #414141;
+$pagination-text-color: #828282;
+$secondary-color: #1da3e4;
+$auxiliary-color: #a16054;
 
 html {
     font-size: 18px;
+
+    @media screen and (max-width: 479px) {
+        font-size: 14px;
+    }
 }
 
 body {
-    font-family: "Ubuntu-Medium", "Tahoma", sans-serif;
-    color: #070707;
+    font-family: "PTMono-Regular", "Tahoma", sans-serif;
+    color: $text-color;
 }
 
 .row-box {
@@ -26,53 +35,204 @@ body {
 }
 
 .inner {
-    width: 940px;
+    max-width: 940px;
+    min-width: 365px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
-.pagination-box {
+.header {
+    padding-bottom: 6.5rem;
 }
 
 .pagination {
     display: flex;
     justify-content: space-between;
-
-    padding-top: 30px;
-    padding-bottom: 30px;
-
     border-bottom: 1px solid #828282;
+    flex-wrap: wrap;
+    -webkit-tap-highlight-color: transparent;
 
     &__item {
+        font-weight: bold;
         text-align: center;
+        max-width: 100%;
+    }
 
-        
+    &__link {
+        position: relative;
+        display: block;
+        color: $pagination-text-color;
+        text-decoration: none;
+        transition: all 0.5s;
 
-        a {
-            color: #828282;
-            text-decoration: none;
-            transition: all 0.45s;
+        padding-top: 1.6rem;
+        padding-bottom: 1.6rem;
 
-            &:hover {
-                color: blue;
-                transform: 3s;
+        &::before {
+            content: "";
+            height: 3px;
+            background: $auxiliary-color;
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            right: 50%;
+            opacity: 0.6;
+            display: block;
+            transition: 0.5s;
+
+            @media (hover: none) {
+                content: none;
             }
+        }
+
+        &:hover::before {
+            left: 0;
+            right: 0;
         }
     }
 
-    &__item_active {
-        color: #070707;
+    &__link-active {
+        color: $auxiliary-color;
     }
 }
 
-
-
-
-
+.checkbox,
+.hamburger-lines {
+    display: none;
+}
 
 .header-content {
+    padding-top: 2.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+
+    @media screen and (max-width: 479px) {
+        justify-content: flex-start;
+    }
+
     &__logo {
+        display: block;
+        width: 220px;
+        font-family: "Norwester", "Tahoma", sans-serif;
+        color: $secondary-color;
+        font-size: 2.7rem;
     }
+
     &__slogan {
+        display: inline-block;
+        padding-top: 0.5rem;
+        width: 220px;
+        vertical-align: text-bottom;
+        font-weight: normal;
     }
+
     &__img {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+        margin-top: 30px;
+    }
+}
+
+.row-box_backgroundColor_smokyWhite {
+    background-color: #f6f6f6;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    &__title {
+        width: 40%;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    &__text {
+        width: 70%;
+        display: block;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .checkbox {
+        position: absolute;
+        display: block;
+        height: 32px;
+        width: 32px;
+        top: 30px;
+        right: 20px;
+        z-index: 5;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .hamburger {
+        height: 26px;
+        width: 32px;
+        position: absolute;
+        top: 27px;
+        right: 20px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .line {
+        display: block;
+        height: 4px;
+        border-radius: 10px;
+        background: $text-color;
+    }
+
+    .line1 {
+        transform-origin: 0% 0%;
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .line2 {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .line3 {
+        transform-origin: 0% 100%;
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .pagination {
+        position: absolute;
+        box-sizing: border-box;
+        background-color: #fff;
+        height: 100vh;
+        align-items: center;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 98%;
+        transform: translate(-150%);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .checkbox:checked ~ .pagination {
+        transform: translateX(0);
+    }
+
+    .checkbox:checked ~ .hamburger .line1 {
+        transform: rotate(45deg);
+    }
+
+    .checkbox:checked ~ .hamburger .line2 {
+        transform: scaleY(0);
+    }
+
+    .checkbox:checked ~ .hamburger .line3 {
+        transform: rotate(-45deg);
     }
 }
