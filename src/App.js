@@ -1,28 +1,59 @@
+import { useRef } from "react";
 import "./App.scss";
+import BtnUp from "./Components/BtnUp/BtnUp";
 
 function App() {
+  const checked = useRef(null);
+
+  const onClickGoToElement = (event) => {
+    event.preventDefault();
+
+    const navLink = event.target;
+    const blockID = navLink.getAttribute("href").slice(1);
+
+    document.getElementById(blockID).scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
+  const onClickCheckboxChecked = () => {
+    checked.current.checked = false;
+  };
+
+  const OnClickListLink = (event) => {
+    onClickGoToElement(event);
+    onClickCheckboxChecked();
+  }
+
   return (
     <>
+      <BtnUp />
       <header className="row-box">
         <div className="inner header">
           <nav className="pagination-box">
-            <input className="checkbox" type="checkbox" />
+            <input className="checkbox" ref={checked} type="checkbox" />
             <div className="hamburger">
               <span className="line line1"></span>
               <span className="line line2"></span>
               <span className="line line3"></span>
             </div>
-            <ul className="pagination">
+            <ul className="pagination pagination__transform">
               <li className="pagination__item">
                 <a
-                  className="pagination__link pagination__link-active"
+                  className="pagination__link"
                   href="#0"
+                  onChange={OnClickListLink}
                 >
                   Главная
                 </a>
               </li>
               <li className="pagination__item">
-                <a className="pagination__link" href="#0">
+                <a
+                  className="pagination__link"
+                  href="#about"
+                  onClick={OnClickListLink}
+                >
                   Обо мне
                 </a>
               </li>
@@ -59,7 +90,10 @@ function App() {
       </header>
 
       <main className="">
-        <section className="row-box row-box_backgroundColor_smokyWhite">
+        <section
+          id="about"
+          className="row-box background-color-smoky-white"
+        >
           <div className="inner about">
             <h3 className="about__title">Обо мне</h3>
             <p className="about__text">
