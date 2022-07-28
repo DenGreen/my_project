@@ -19,7 +19,7 @@ html {
     font-size: 18px;
 
     @media screen and (max-width: 479px) {
-        font-size: 14px;
+        font-size: 20px;
     }
 }
 
@@ -32,14 +32,15 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    min-height: 100vh;
 }
 
 .inner {
     max-width: 940px;
     min-width: 365px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .header {
@@ -151,18 +152,17 @@ body {
 }
 
 .section__title {
-    width: 40%;
     text-align: center;
     padding-bottom: 10px;
     font-size: 1.9rem;
 }
 
 .section__text {
-    width: 70%;
     display: block;
     text-align: center;
     line-height: 22px;
 }
+
 .section-skills {
     &__title {
         padding-top: 80px;
@@ -172,15 +172,17 @@ body {
 
     &__text{
         padding-top: 70px;
+        text-align: center;
     }
 
     &__wrap {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        align-content: flex-start;
         padding-top: 84px;
+        padding-bottom: 40px;
         flex-wrap: wrap;
         row-gap: 84px;
-        box-sizing: border-box;
     }
 
     &__box-skills {
@@ -188,8 +190,8 @@ body {
     }
 
     &__logo {
-        width: 120px;
-        height: 60px;
+        width: 150px;
+        height: 80px;
     }
 
     &__desc{
@@ -198,6 +200,52 @@ body {
         font-size: 0.9rem;
         line-height: 17px;
         font-weight: bold;
+    }
+}
+
+.section-portfolio {
+    &__title {
+        padding-top: 80px;
+        font-size: 34px;
+        line-height: 42px;
+    }
+
+    &__wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding-top: 45px;
+        padding-bottom: 40px;
+        row-gap: 2em;
+    }
+
+    &__project {
+        text-align: center;
+        max-width: 420px;
+    }
+
+    &__img {
+        max-width: 400px;
+        height: 200px;
+        width: 100%;
+    }
+
+    &__desc {
+        padding-top: 10px;
+    }
+
+    &__link {
+        padding-top: 10px;
+        display: block;
+        font-size: 0.9rem;
+        line-height: 17px;
+        font-weight: bold;
+        color: $text-color;
+        transition: all 0.5s;
+
+        &:hover {
+            color: $auxiliary-color;
+        }
     }
 }
 

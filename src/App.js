@@ -67,7 +67,11 @@ function App() {
                 </a>
               </li>
               <li className="pagination__item">
-                <a className="pagination__link" href="#0">
+                <a
+                  className="pagination__link"
+                  href="#portfolio"
+                  onClick={OnClickListLink}
+                >
                   Портфолио
                 </a>
               </li>
@@ -180,6 +184,14 @@ function App() {
             </div>
             <div className="section-skills__box-skills">
               <img
+                src="./img/sass.svg"
+                className="section-skills__logo"
+                alt=""
+              />
+              <span className="section-skills__desc">Sass/Scss</span>
+            </div>
+            <div className="section-skills__box-skills">
+              <img
                 src="./img/npm.svg"
                 className="section-skills__logo"
                 alt=""
@@ -217,6 +229,105 @@ function App() {
                 alt=""
               />
               <span className="section-skills__desc">Figma</span>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="portfolio"
+          className="row-box section-portfolio background-color-smoky-white"
+        >
+          <h3 className="section-portfolio__title">Портфолио</h3>
+          <div className="section-portfolio__wrap inner">
+            <div className="section-portfolio__project">
+              <img
+                src="./img/Portfolio/Surface.png"
+                alt=""
+                className="section-portfolio__img"
+              />
+              <p className="section-portfolio__desc">
+                Surface-landing page
+                <a
+                  href="https://dengreen.github.io/adaptiv/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="section-portfolio__link"
+                >
+                  Перейти
+                </a>
+              </p>
+            </div>
+            <div className="section-portfolio__project">
+              <img
+                src="./img/Portfolio/Money-manager.png"
+                alt=""
+                className="section-portfolio__img"
+              />
+              <p className="section-portfolio__desc">
+                Money Manager - приложение для управления финансами
+                <a
+                  href="https://bhjiploma.herokuapp.com/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="section-portfolio__link"
+                >
+                  Перейти
+                </a>
+              </p>
+            </div>
+            <div className="section-portfolio__project">
+              <img
+                src="./img/Portfolio/Money-manager.png"
+                alt=""
+                className="section-portfolio__img"
+              />
+              <p className="section-portfolio__desc">
+                Money Manager - приложение для управления финансами
+                <a
+                  href="https://dengreen.github.io/adaptiv/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="section-portfolio__link"
+                >
+                  Перейти
+                </a>
+              </p>
+            </div>
+            <div className="section-portfolio__project">
+              <img
+                src="./img/Portfolio/Money-manager.png"
+                alt=""
+                className="section-portfolio__img"
+              />
+              <p className="section-portfolio__desc">
+                Money Manager - приложение для управления финансами
+                <a
+                  href="https://dengreen.github.io/adaptiv/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="section-portfolio__link"
+                >
+                  Перейти
+                </a>
+              </p>
+            </div>
+            <div className="section-portfolio__project">
+              <img
+                src="./img/Portfolio/Money-manager.png"
+                alt=""
+                className="section-portfolio__img"
+              />
+              <p className="section-portfolio__desc">
+                Money Manager - приложение для управления финансами
+                <a
+                  href="https://dengreen.github.io/adaptiv/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="section-portfolio__link"
+                >
+                  Перейти
+                </a>
+              </p>
             </div>
           </div>
         </section>
