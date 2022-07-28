@@ -24,7 +24,7 @@ function App() {
   const OnClickListLink = (event) => {
     onClickGoToElement(event);
     onClickCheckboxChecked();
-  }
+  };
 
   return (
     <>
@@ -58,7 +58,11 @@ function App() {
                 </a>
               </li>
               <li className="pagination__item">
-                <a className="pagination__link" href="#0">
+                <a
+                  className="pagination__link"
+                  href="#skills"
+                  onClick={OnClickListLink}
+                >
                   Навыки
                 </a>
               </li>
@@ -89,14 +93,11 @@ function App() {
         </div>
       </header>
 
-      <main className="">
-        <section
-          id="about"
-          className="row-box background-color-smoky-white"
-        >
+      <main>
+        <section id="about" className="row-box background-color-smoky-white">
           <div className="inner about">
-            <h3 className="about__title">Обо мне</h3>
-            <p className="about__text">
+            <h3 className="section__title">Обо мне</h3>
+            <p className="section__text">
               Привет, я Денис – Frontend разработчик из Балаково. <br />
               <br /> Я интересуюсь веб разработкой, и всем что с этим связанно.{" "}
               <br />
@@ -104,6 +105,119 @@ function App() {
               <br /> Готов реализовывать отличные проекты с замечательными
               людьми.
             </p>
+          </div>
+        </section>
+
+        <section id="skills" className="row-box section-skills">
+          <h3 className="section-skills__title">Навыки</h3>
+          <p className="section-skills__text">
+            Я работаю в таких программах, как
+          </p>
+          <div className="section-skills__wrap inner">
+            <div className="section-skills__box-skills">
+              <img
+                src="./img/html5.svg"
+                className="section-skills__logo"
+                alt=""
+              />
+              <span className="section-skills__desc">HTML5</span>
+            </div>
+            <div className="section-skills__box-skills">
+              <img
+                src="./img/css3.svg"
+                className="section-skills__logo"
+                alt=""
+              />
+              <span className="section-skills__desc">CSS3</span>
+            </div>
+            <div className="section-skills__box-skills">
+              <img
+                src="./img/javascript.svg"
+                className="section-skills__logo"
+                alt=""
+              />
+              <span className="section-skills__desc">JavaScript</span>
+            </div>
+            <div className="section-skills__box-skills">
+              <img
+                src="./img/nodejs.svg"
+                className="section-skills__logo"
+                alt=""
+              />
+              <span className="section-skills__desc">Node.js</span>
+            </div>
+            <div className="section-skills__box-skills">
+              <img
+                src="./img/logo-react.svg"
+                className="section-skills__logo"
+                alt=""
+              />
+              <span className="section-skills__desc">React</span>
+            </div>
+            <div className="section-skills__box-skills">
+              <img
+                src="./img/react-router.svg"
+                className="section-skills__logo"
+                alt=""
+              />
+              <span className="section-skills__desc">React-Router</span>
+            </div>
+            <div className="section-skills__box-skills">
+              <img
+                src="./img/jest.svg"
+                className="section-skills__logo"
+                alt=""
+              />
+              <span className="section-skills__desc">Jest</span>
+            </div>
+            <div className="section-skills__box-skills">
+              <img
+                src="./img/webpack.svg"
+                className="section-skills__logo"
+                alt=""
+              />
+              <span className="section-skills__desc">Webpack</span>
+            </div>
+            <div className="section-skills__box-skills">
+              <img
+                src="./img/npm.svg"
+                className="section-skills__logo"
+                alt=""
+              />
+              <span className="section-skills__desc">npm</span>
+            </div>
+            <div className="section-skills__box-skills">
+              <img
+                src="./img/git.svg"
+                className="section-skills__logo"
+                alt=""
+              />
+              <span className="section-skills__desc">GIT</span>
+            </div>
+            <div className="section-skills__box-skills">
+              <img
+                src="./img/github.svg"
+                className="section-skills__logo"
+                alt=""
+              />
+              <span className="section-skills__desc">GitHub</span>
+            </div>
+            <div className="section-skills__box-skills">
+              <img
+                src="./img/appveyor.svg"
+                className="section-skills__logo"
+                alt=""
+              />
+              <span className="section-skills__desc">Appveyor</span>
+            </div>
+            <div className="section-skills__box-skills">
+              <img
+                src="./img/figma.svg"
+                className="section-skills__logo"
+                alt=""
+              />
+              <span className="section-skills__desc">Figma</span>
+            </div>
           </div>
         </section>
       </main>
