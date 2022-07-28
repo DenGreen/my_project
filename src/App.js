@@ -259,7 +259,7 @@ function App() {
             </div>
             <div className="section-portfolio__project">
               <img
-                src="./img/Portfolio/Money-manager.png"
+                src="./img/Portfolio/MoneyManager.png"
                 alt=""
                 className="section-portfolio__img"
               />
@@ -277,7 +277,7 @@ function App() {
             </div>
             <div className="section-portfolio__project">
               <img
-                src="./img/Portfolio/Money-manager.png"
+                src="./img/Portfolio/MoneyManager.png"
                 alt=""
                 className="section-portfolio__img"
               />
@@ -295,7 +295,7 @@ function App() {
             </div>
             <div className="section-portfolio__project">
               <img
-                src="./img/Portfolio/Money-manager.png"
+                src="./img/Portfolio/MoneyManager.png"
                 alt=""
                 className="section-portfolio__img"
               />
@@ -313,7 +313,7 @@ function App() {
             </div>
             <div className="section-portfolio__project">
               <img
-                src="./img/Portfolio/Money-manager.png"
+                src="./img/Portfolio/MoneyManager.png"
                 alt=""
                 className="section-portfolio__img"
               />
