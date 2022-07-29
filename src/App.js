@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import "./App.scss";
 import BtnUp from "./Components/BtnUp/BtnUp";
-import ContactUs from "./Components/ContactUs/ContactUs"
+import ContactUs from "./Components/ContactUs/ContactUs";
 
 function App() {
   const checked = useRef(null);
@@ -336,13 +336,13 @@ function App() {
           </div>
         </section>
       </main>
-      <footer id="contacts" className="footer ">
-         <div className="footer__wrap row-box iner">
-         <h3 className="footer__title">Контакты</h3>
+      <footer id="contacts" className="footer row-box">
+        <div className="footer__wrap inner">
+          <h3 className="footer__title">Контакты</h3>
           <p className="footer__text">
             Хотите узнать больше или просто поболтать? Добро пожаловать!
           </p>
-          <button className="footer__btn">Отправить сообщение</button>
+          <ContactUs />
           <div className="footer__box">
             <a href="#0" className="footer__social-link">
               <img
@@ -385,9 +385,8 @@ function App() {
               />
             </a>
           </div>
-          <ContactUs/>
-         </div>
-        </footer> 
+        </div>
+      </footer>
     </>
   );
 }
