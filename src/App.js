@@ -94,7 +94,7 @@ function App() {
               Frontend Developer 28 лет, Балаково
             </h2>
             <img
-              src="./img/header.jpg"
+              src="./img/header.webp"
               alt="Малышев Денис"
               className="header-content__img"
             />
@@ -245,7 +245,7 @@ function App() {
           <div className="section-portfolio__wrap inner">
             <div className="section-portfolio__project">
               <img
-                src="./img/Portfolio/Surface.png"
+                src="./img/Portfolio/Surface.webp"
                 alt=""
                 className="section-portfolio__img"
               />
@@ -263,7 +263,7 @@ function App() {
             </div>
             <div className="section-portfolio__project">
               <img
-                src="./img/Portfolio/MoneyManager.png"
+                src="./img/Portfolio/MoneyManager.webp"
                 alt=""
                 className="section-portfolio__img"
               />
@@ -271,60 +271,6 @@ function App() {
                 Money Manager - приложение для управления финансами
                 <a
                   href="https://bhjiploma.herokuapp.com/"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="section-portfolio__link"
-                >
-                  Перейти
-                </a>
-              </p>
-            </div>
-            <div className="section-portfolio__project">
-              <img
-                src="./img/Portfolio/MoneyManager.png"
-                alt=""
-                className="section-portfolio__img"
-              />
-              <p className="section-portfolio__desc">
-                Money Manager - приложение для управления финансами
-                <a
-                  href="https://dengreen.github.io/adaptiv/"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="section-portfolio__link"
-                >
-                  Перейти
-                </a>
-              </p>
-            </div>
-            <div className="section-portfolio__project">
-              <img
-                src="./img/Portfolio/MoneyManager.png"
-                alt=""
-                className="section-portfolio__img"
-              />
-              <p className="section-portfolio__desc">
-                Money Manager - приложение для управления финансами
-                <a
-                  href="https://dengreen.github.io/adaptiv/"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="section-portfolio__link"
-                >
-                  Перейти
-                </a>
-              </p>
-            </div>
-            <div className="section-portfolio__project">
-              <img
-                src="./img/Portfolio/MoneyManager.png"
-                alt=""
-                className="section-portfolio__img"
-              />
-              <p className="section-portfolio__desc">
-                Money Manager - приложение для управления финансами
-                <a
-                  href="https://dengreen.github.io/adaptiv/"
                   target="_blank"
                   rel="noreferrer noopener"
                   className="section-portfolio__link"
