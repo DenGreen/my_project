@@ -1,15 +1,14 @@
 {
-    "short_name": "React App",
-    "name": "Create React App Sample",
-    "icons": [
-      {
-        "src": "favicon.ico",
-        "sizes": "192x192",
-        "type": "image/png"
-      }
-    ],
-    "start_url": "./index.html",
-    "display": "standalone",
-    "theme_color": "#000000",
-    "background_color": "#ffffff"
-  }
+  "short_name": "DM",
+  "name": "Denis FrontDev",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "type": "image/ico"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#1da3e4"
+}
