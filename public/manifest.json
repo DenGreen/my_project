@@ -1,16 +1,16 @@
 {
-  "short_name": "DM",
+  "short_name": "DenisM",
   "name": "Denis FrontDev",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "favicon2.ico",
+      "sizes": "128x128",
       "type": "image/x-icon"
     },
     {
-      "src": "favicon.png",
+      "src": "favicon144.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "256x256"
     }
   ],
   "start_url": "./index.html",
