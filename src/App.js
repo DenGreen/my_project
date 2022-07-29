@@ -76,7 +76,11 @@ function App() {
                 </a>
               </li>
               <li className="pagination__item">
-                <a className="pagination__link" href="#0">
+                <a
+                  className="pagination__link"
+                  href="#contacts"
+                  onClick={OnClickListLink}
+                >
                   Контакты
                 </a>
               </li>
@@ -112,10 +116,7 @@ function App() {
           </div>
         </section>
 
-        <section
-          id="skills"
-          className="row-box section-skills"
-        >
+        <section id="skills" className="row-box section-skills">
           <h3 className="section-skills__title">Навыки</h3>
           <p className="section-skills__text">В своей работе, я использую</p>
           <div className="section-skills__wrap inner">
@@ -333,6 +334,56 @@ function App() {
             </div>
           </div>
         </section>
+
+        <footer id="contacts" className="footer row-box">
+          <h3 className="footer__title">Контакты</h3>
+          <p className="footer__text">
+            Хотите узнать больше или просто поболтать? Добро пожаловать!
+          </p>
+          <button className="footer__btn">Отправить сообщение</button>
+          <div className="footer__box">
+            <a href="#0" className="footer__social-link">
+              <img
+                src="./img/social_img/GitHub.svg"
+                className="footer__social-ico"
+                alt=""
+                title="GitHub"
+              />
+            </a>
+            <a href="#0" className="footer__social-link">
+              <img
+                src="./img/social_img/Skype.svg"
+                className="footer__social-ico"
+                alt=""
+                title="Skype"
+              />
+            </a>
+            <a href="#0" className="footer__social-link">
+              <img
+                src="./img/social_img/Telegram.svg"
+                className="footer__social-ico"
+                alt=""
+                title="Telegram"
+              />
+            </a>
+            <a href="#0" className="footer__social-link">
+              <img
+                src="./img/social_img/VK.svg"
+                className="footer__social-ico"
+                alt=""
+                title="VK"
+              />
+            </a>
+            <a href="#0" className="footer__social-linck">
+              <img
+                src="./img/social_img/WhatsApp.svg"
+                className="footer__social-ico"
+                alt=""
+                title="WhatsApp"
+              />
+            </a>
+          </div>
+        </footer>
       </main>
     </>
   );
