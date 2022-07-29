@@ -29,8 +29,8 @@ function App() {
   return (
     <>
       <BtnUp />
-      <header className="row-box">
-        <div className="inner header">
+      <section className="row-box header-box">
+        <header className="inner header">
           <nav className="pagination-box">
             <input className="checkbox" ref={checked} type="checkbox" />
             <div className="hamburger">
@@ -83,7 +83,7 @@ function App() {
             </ul>
           </nav>
 
-          <section className="header-content">
+          <div className="header-content">
             <h1 className="header-content__logo">Denis Malyshev</h1>
             <h2 className="header-content__slogan">
               Frontend Developer 28 лет, Балаково
@@ -93,11 +93,11 @@ function App() {
               alt="Малышев Денис"
               className="header-content__img"
             />
-          </section>
-        </div>
-      </header>
+          </div>
+        </header>
+      </section>
 
-      <main>
+      <main className="main">
         <section id="about" className="row-box background-color-smoky-white">
           <div className="inner about">
             <h3 className="section__title">Обо мне</h3>
@@ -112,11 +112,12 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className="row-box section-skills">
+        <section
+          id="skills"
+          className="row-box section-skills"
+        >
           <h3 className="section-skills__title">Навыки</h3>
-          <p className="section-skills__text">
-            Я работаю в таких программах, как
-          </p>
+          <p className="section-skills__text">В своей работе, я использую</p>
           <div className="section-skills__wrap inner">
             <div className="section-skills__box-skills">
               <img
@@ -231,6 +232,7 @@ function App() {
               <span className="section-skills__desc">Figma</span>
             </div>
           </div>
+          <span className="section-background"></span>
         </section>
 
         <section

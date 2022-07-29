@@ -34,16 +34,22 @@ body {
     flex-direction: column;
 }
 
+.header-box {
+    min-height: 737px;
+    max-height: 937px;
+    z-index: -1;
+}
+
 .inner {
     max-width: 940px;
     min-width: 365px;
     padding-left: 10px;
     padding-right: 10px;
-    min-height: 100vh;
     box-sizing: border-box;
 }
 
 .header {
+    position: fixed;
     padding-bottom: 6.5rem;
 }
 
@@ -138,6 +144,11 @@ body {
     }
 }
 
+.main {
+    position: relative;
+    z-index: 1;
+}
+
 .background-color-smoky-white {
     background-color: #f6f6f6;
 }
@@ -164,15 +175,22 @@ body {
 }
 
 .section-skills {
+    position: relative;
+    background-image: url("./img/test.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
     &__title {
         padding-top: 80px;
         font-size: 34px;
         line-height: 42px;
+        z-index: 3;
     }
 
-    &__text{
+    &__text {
         padding-top: 70px;
         text-align: center;
+        z-index: 3;
     }
 
     &__wrap {
@@ -183,6 +201,7 @@ body {
         padding-bottom: 40px;
         flex-wrap: wrap;
         row-gap: 84px;
+        z-index: 3;
     }
 
     &__box-skills {
@@ -194,12 +213,23 @@ body {
         height: 80px;
     }
 
-    &__desc{
+    &__desc {
         display: block;
         padding-top: 10px;
         font-size: 0.9rem;
         line-height: 17px;
         font-weight: bold;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: #fff;
+        opacity: 0.9;
     }
 }
 
