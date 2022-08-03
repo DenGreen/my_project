@@ -21,8 +21,9 @@ const theme = createTheme({
 
 export default function ContactUs() {
   const form = useRef();
-  let [stateName, setStateName] = useState({ value: "" });
-  let [stateEmail, setStateEmail] = useState({ value: "" });
+  const [stateName, setStateName] = useState({ value: "" });
+  const [stateEmail, setStateEmail] = useState({ value: "" });
+  const [stateText, setStateText] = useState({ value: "" });
   const [loading, setLoading] = useState(false);
   const [inputText, setInputText] = useState('Отправить сообщение');
 
@@ -42,10 +43,19 @@ export default function ContactUs() {
     };
   };
 
+  const handleChangeText = (event) => {
+    let text = event.target.value;
+    setStateText({ value: text });
+
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
     setInputText('Сообщение отправляется');
+    setStateName({ value: '' });
+    setStateEmail({ value: '' });
+    setStateText({value: ''});
 
     emailjs
       .sendForm(
@@ -61,7 +71,6 @@ export default function ContactUs() {
           setTimeout(() => {
             setInputText('Отправить сообщение');
           }, 2000);
-          console.log(result.text);
         },
         (error) => {
           console.log(error.text);
@@ -74,13 +83,13 @@ export default function ContactUs() {
       <ThemeProvider theme={theme}>
         <div className="form__label">
         <FormControl variant="standard" >
-        <InputLabel htmlFor="component-simple" >Имя</InputLabel>
+        <InputLabel htmlFor="component-simple" >Имя *</InputLabel>
         <Input onChange={handleChangeName} value={stateName.value} className="form__input" id="component-simple" type="text" name="user_name" required={true} />
       </FormControl>
         </div>
         <div className="form__label">
         <FormControl variant="standard" className="form__label">
-        <InputLabel htmlFor="component-simple" >Email</InputLabel>
+        <InputLabel htmlFor="component-simple" >Email *</InputLabel>
         <Input onChange={handleChangeEmail} value={stateEmail.value} className="form__input"  id="component-simple" type="email" name="user_email" required={true}/>
       </FormControl>
         </div>
@@ -96,6 +105,8 @@ export default function ContactUs() {
           rows={4}
           variant="standard"
           required={true}
+          value={stateText.value}
+          onChange={handleChangeText}
         />
       </FormControl>
         </div>

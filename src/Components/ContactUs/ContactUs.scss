@@ -34,14 +34,14 @@
         
         &:hover {
             background-color: #7b3d42;
+            @media (hover: none) {
+                background-color: #414141;
+            }
         }
 
         &_disabled {
             background-color: #828282;
             opacity: .8;
-            &:hover {
-                background-color: #828282;
-            }
         }
     }
     
