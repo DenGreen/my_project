@@ -89,15 +89,17 @@ function App() {
           </nav>
 
           <div className="header-content">
-            <h1 className="header-content__logo">Denis Malyshev</h1>
-            <h2 className="header-content__slogan">
-              Frontend Developer 28 лет, Балаково
-            </h2>
+            <div className="header-content__box-title">
+              <h1 className="header-content__logo">Denis Malyshev</h1>
+              <h2 className="header-content__slogan">
+                Frontend Developer 28 лет, Балаково
+              </h2>
+            </div>
             <img
-              src="./img/header.webp"
-              alt="Малышев Денис"
               className="header-content__img"
-            />
+              srcSet="./img/header800x800.webp 1x, ./img/header.webp 2x"
+              alt="Картинка"
+            ></img>
           </div>
         </header>
       </section>

@@ -12,8 +12,8 @@
 
 $text-color: #414141;
 $pagination-text-color: #828282;
-$secondary-color: #1da3e4;
-$auxiliary-color: #a16054;
+$secondary-color: #006895;
+$auxiliary-color: #7b3d42;
 
 html {
     font-size: 18px;
@@ -35,7 +35,7 @@ body {
 }
 
 .header-box {
-    min-height: 737px;
+    min-height: 630px;
     max-height: 937px;
     z-index: -1;
 }
@@ -110,14 +110,13 @@ body {
 }
 
 .header-content {
-    padding-top: 2.2rem;
+    padding-top: 2.5rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
 
-    @media screen and (max-width: 479px) {
-        justify-content: flex-start;
+    @media screen and (max-width: 767px) {
+        flex-direction: column;
     }
 
     &__logo {
@@ -137,10 +136,14 @@ body {
     }
 
     &__img {
-        width: 100%;
-        height: 380px;
+        max-width: 550px;
+        min-width: 500px;
+        height: 400px;
         object-fit: cover;
-        margin-top: 30px;
+
+        @media screen and (min-width: 767px) {
+            width: 520px;
+        }
     }
 }
 
@@ -319,7 +322,7 @@ body {
         height: 32px;
         width: 32px;
         top: 30px;
-        right: 20px;
+        right: 17%;
         z-index: 5;
         opacity: 0;
         cursor: pointer;
@@ -329,8 +332,8 @@ body {
         height: 26px;
         width: 32px;
         position: absolute;
-        top: 27px;
-        right: 20px;
+        top: 30px;
+        right: 17%;
         z-index: 2;
         display: flex;
         flex-direction: column;

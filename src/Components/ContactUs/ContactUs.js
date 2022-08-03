@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { FormControl, InputLabel, Input, TextField } from "@mui/material";
+import { FormControl, InputLabel, Input, TextField, CircularProgress } from "@mui/material";
 import './ContactUs.scss'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -10,7 +10,7 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: '#1da3e4',
+      main: '#006895',
       darker: '#a16054',
     },
     text: {
@@ -23,6 +23,8 @@ export default function ContactUs() {
   const form = useRef();
   let [stateName, setStateName] = useState({ value: "" });
   let [stateEmail, setStateEmail] = useState({ value: "" });
+  const [loading, setLoading] = useState(false);
+  const [inputText, setInputText] = useState('Отправить сообщение');
 
   const handleChangeName = (event) => {
     let text = event.target.value;
@@ -42,6 +44,8 @@ export default function ContactUs() {
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setLoading(true);
+    setInputText('Сообщение отправляется');
 
     emailjs
       .sendForm(
@@ -52,6 +56,11 @@ export default function ContactUs() {
       )
       .then(
         (result) => {
+          setLoading(false);
+          setInputText('Сообщение отправленно');
+          setTimeout(() => {
+            setInputText('Отправить сообщение');
+          }, 2000);
           console.log(result.text);
         },
         (error) => {
@@ -66,13 +75,13 @@ export default function ContactUs() {
         <div className="form__label">
         <FormControl variant="standard" >
         <InputLabel htmlFor="component-simple" >Имя</InputLabel>
-        <Input onChange={handleChangeName} value={stateName.value} className="form__input" id="component-simple" type="text" name="user_name" />
+        <Input onChange={handleChangeName} value={stateName.value} className="form__input" id="component-simple" type="text" name="user_name" required={true} />
       </FormControl>
         </div>
         <div className="form__label">
         <FormControl variant="standard" className="form__label">
         <InputLabel htmlFor="component-simple" >Email</InputLabel>
-        <Input onChange={handleChangeEmail} value={stateEmail.value} className="form__input"  id="component-simple" type="email" name="user_email" />
+        <Input onChange={handleChangeEmail} value={stateEmail.value} className="form__input"  id="component-simple" type="email" name="user_email" required={true}/>
       </FormControl>
         </div>
       
@@ -86,11 +95,28 @@ export default function ContactUs() {
           multiline
           rows={4}
           variant="standard"
+          required={true}
         />
       </FormControl>
         </div>
-      
-      <input type="submit" value="Отправить сообщение" className="form__btn"/>
+
+      <button type="submit" value={inputText} className={loading ? "form__btn form__btn_disabled" : "form__btn"} disabled={loading}>
+      {inputText}
+      {loading && (
+          <CircularProgress
+            size={40}
+            sx={{
+              color: "#1da3e4",
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              marginTop: '-20px',
+              marginLeft: '-20px',
+            }}
+          />
+        )}
+      </button>
+
       </ThemeProvider>
      
     </form>
