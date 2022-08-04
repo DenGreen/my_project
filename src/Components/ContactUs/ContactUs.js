@@ -1,8 +1,11 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { FormControl, InputLabel, Input, TextField, CircularProgress } from "@mui/material";
+import { FormControl, InputLabel, Input, TextField } from "@mui/material";
 import './ContactUs.scss'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useDispatch } from 'react-redux';
+import {messageSending, messageSendingOk, messageReset} from '../../reducers/ContactUs/ContactUsSlice';
+import ContactUsBtn from './ContactUsBtn/ContactUsBtn';
 
 const theme = createTheme({
   status: {
@@ -24,8 +27,7 @@ export default function ContactUs() {
   const [stateName, setStateName] = useState({ value: "" });
   const [stateEmail, setStateEmail] = useState({ value: "" });
   const [stateText, setStateText] = useState({ value: "" });
-  const [loading, setLoading] = useState(false);
-  const [inputText, setInputText] = useState('Отправить сообщение');
+  const dispatch = useDispatch()
 
   const handleChangeName = (event) => {
     let text = event.target.value;
@@ -51,8 +53,8 @@ export default function ContactUs() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    setLoading(true);
-    setInputText('Сообщение отправляется');
+    dispatch(messageSending());
+
     setStateName({ value: '' });
     setStateEmail({ value: '' });
     setStateText({value: ''});
@@ -66,10 +68,9 @@ export default function ContactUs() {
       )
       .then(
         (result) => {
-          setLoading(false);
-          setInputText('Сообщение отправленно');
+          dispatch(messageSendingOk());
           setTimeout(() => {
-            setInputText('Отправить сообщение');
+            dispatch(messageReset());
           }, 2000);
         },
         (error) => {
@@ -110,24 +111,7 @@ export default function ContactUs() {
         />
       </FormControl>
         </div>
-
-      <button type="submit" value={inputText} className={loading ? "form__btn form__btn_disabled" : "form__btn"} disabled={loading}>
-      {inputText}
-      {loading && (
-          <CircularProgress
-            size={40}
-            sx={{
-              color: "#1da3e4",
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              marginTop: '-20px',
-              marginLeft: '-20px',
-            }}
-          />
-        )}
-      </button>
-
+        <ContactUsBtn/>
       </ThemeProvider>
      
     </form>
