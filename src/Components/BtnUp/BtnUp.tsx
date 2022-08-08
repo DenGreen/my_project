@@ -4,7 +4,7 @@ import './BtnUp.scss'
 export default function BtnUp() {
  
   useEffect(() => {
-    const btnUp = document.querySelector('.btn-up');
+    const btnUp = document.querySelector('.btn-up') as HTMLSpanElement;
     
     window.addEventListener("scroll", function () {
       btnUp.hidden = window.pageYOffset < 100;
@@ -13,7 +13,7 @@ export default function BtnUp() {
   
 
   const onClickBtnUp = () => {
-    document.querySelector(".row-box").scrollIntoView({
+    document.querySelector(".row-box")!.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });

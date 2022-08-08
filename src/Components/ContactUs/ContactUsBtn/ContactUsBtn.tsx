@@ -1,13 +1,13 @@
 import React from "react";
-import {useSelector} from "react-redux";
 import {CircularProgress} from "@mui/material";
 import {SENDING, SENDING_OK} from "../../../actions/actionTypes";
+import {useAppSelector} from '../../../app/hooks';
 import "./ContactUsBtn.scss";
 
-function getAppContactUsBtn(messageSending) {
-  let className;
-  let btnText;
-  let messageStatusBul;
+function getAppContactUsBtn(messageSending: string) {
+  let className: string = '';
+  let btnText: string = '';
+  let messageStatusBul: boolean = false;
 
   switch (messageSending) {
     case SENDING:
@@ -30,7 +30,7 @@ function getAppContactUsBtn(messageSending) {
 }
 
 function ContactUsBtn() {
-  const messageSending = useSelector((state) => state.messageContact.value);
+  const messageSending: string = useAppSelector((state) => state.messageContact.value);
   let {className, btnText, messageStatusBul} = getAppContactUsBtn(messageSending);
 
   return (

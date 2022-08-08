@@ -1,28 +1,28 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import "./App.scss";
 import BtnUp from "./Components/BtnUp/BtnUp";
 import ContactUs from "./Components/ContactUs/ContactUs";
 
 function App() {
-  const checked = useRef(null);
+  const checked = useRef<HTMLInputElement>(null);
 
-  const onClickGoToElement = (event) => {
+  const onClickGoToElement = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
 
-    const navLink = event.target;
-    const blockID = navLink.getAttribute("href").slice(1);
+    const navLink = event.target as HTMLLinkElement;
+    const blockID = navLink.getAttribute("href")!.slice(1);
 
-    document.getElementById(blockID).scrollIntoView({
+    document.getElementById(blockID)!.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
   };
 
   const onClickCheckboxChecked = () => {
-    checked.current.checked = false;
+    checked.current!.checked = false;
   };
 
-  const OnClickListLink = (event) => {
+  const OnClickListLink = (event: React.MouseEvent<HTMLAnchorElement>) => {
     onClickGoToElement(event);
     onClickCheckboxChecked();
   };
@@ -44,7 +44,7 @@ function App() {
                 <a
                   className="pagination__link"
                   href="#0"
-                  onChange={OnClickListLink}
+                  onClick={OnClickListLink}
                 >
                   Главная
                 </a>
