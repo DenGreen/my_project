@@ -1,116 +1,147 @@
-import React, { useRef } from "react";
 import "./App.scss";
 import BtnUp from "./Components/BtnUp/BtnUp";
-import ContactUs from "./Components/ContactUs/ContactUs";
+import ContactUs from "./Components/FormForSendingMessages/ContactUs";
+import { nanoid } from "nanoid";
+import HeaderPage from "./pages/Header/Header";
+import {ICollectionPages} from "./models";
+
+
+const collectionPages: ICollectionPages[]= [
+  { text: "Главная", href: "main", id: nanoid() },
+  { text: "Обо мне", href: "about", id: nanoid() },
+  { text: "Навыки", href: "skills", id: nanoid() },
+  { text: "Портфолио", href: "portfolio", id: nanoid() },
+  { text: "Контакты", href: "contacts", id: nanoid() }
+];
+
+const collectionSkills = [
+  { img: "html5.svg", name: "HTML", id: nanoid() },
+  { img: "css3.svg", name: "CSS", id: nanoid() },
+  { img: "javascript.svg", name: "JavaScript", id: nanoid() },
+  { img: "ts.svg", name: "TypeScript", id: nanoid() },
+  { img: "logo-react.svg", name: "React", id: nanoid() },
+  { img: "react-router.svg", name: "React-Router", id: nanoid() },
+  { img: "jest.svg", name: "Jest", id: nanoid() },
+  { img: "webpack.svg", name: "Webpack", id: nanoid() },
+  { img: "sass.svg", name: "SASS/SCSS", id: nanoid() },
+  { img: "npm.svg", name: "NPM", id: nanoid() },
+  { img: "git.svg", name: "GIT", id: nanoid() },
+  { img: "github.svg", name: "GitHub", id: nanoid() },
+  { img: "appveyor.svg", name: "Appveyor", id: nanoid() },
+  { img: "figma.svg", name: "Figma", id: nanoid() },
+];
+
+const collectionPortfolio = [
+  { img: "Surface.webp", text: "Surface-landing page", id: nanoid() },
+  {
+    img: "MoneyManager.webp",
+    text: " Money Manager - приложение для управления финансами",
+    id: nanoid(),
+  },
+];
+
+const collectionSocialLink = [
+  { img: "GitHub.svg", title: "GitHub", link: "0", id: nanoid() },
+  { img: "Skype.svg", title: "Skype", link: "0", id: nanoid() },
+  { img: "Telegram.svg", title: "Telegram", link: "0", id: nanoid() },
+  { img: "VK.svg", title: "VK", link: "0", id: nanoid() },
+  { img: "WhatsApp.svg", title: "WhatsApp", link: "0", id: nanoid() },
+];
 
 function App() {
-  const checked = useRef<HTMLInputElement>(null);
-
-  const onClickGoToElement = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-
-    const navLink = event.target as HTMLLinkElement;
-    const blockID = navLink.getAttribute("href")!.slice(1);
-
-    document.getElementById(blockID)!.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const addScills = () => {
+    return (
+      <section id="skills" className="row-box section-skills">
+        <h3 className="section-skills__title">Навыки</h3>
+        <p className="section-skills__text">В своей работе, я использую</p>
+        <div className="section-skills__wrap inner">
+          {collectionSkills.map((value) => {
+            return (
+              <div className="section-skills__box-skills" key={value.id}>
+                <img
+                  src={`./img/${value.img}`}
+                  className="section-skills__logo"
+                  alt=""
+                />
+                <span className="section-skills__desc">{value.name}</span>
+              </div>
+            );
+          })}
+        </div>
+        <span className="section-background"></span>
+      </section>
+    );
   };
 
-  const onClickCheckboxChecked = () => {
-    checked.current!.checked = false;
+  const addPortfolio = () => {
+    return (
+      <section
+        id="portfolio"
+        className="row-box section-portfolio background-color-smoky-white"
+      >
+        <h3 className="section-portfolio__title">Портфолио</h3>
+        <div className="section-portfolio__wrap inner">
+          {collectionPortfolio.map((value) => {
+            return (
+              <div className="section-portfolio__project" key={value.id}>
+                <img
+                  src={`./img/Portfolio/${value.img}`}
+                  alt=""
+                  className="section-portfolio__img"
+                />
+                <p className="section-portfolio__desc">
+                  {value.text}
+                  <a
+                    href="https://dengreen.github.io/adaptiv/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="section-portfolio__link"
+                  >
+                    Перейти
+                  </a>
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    );
   };
 
-  const OnClickListLink = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    onClickGoToElement(event);
-    onClickCheckboxChecked();
+  const addSicialLink = () => {
+    return (
+      <div className="footer__box">
+        {collectionSocialLink.map((value) => {
+          return (
+            <a
+              href={`#${value.link}`}
+              className="footer__social-linck"
+              key={value.id}
+            >
+              <img
+                src={`./img/social_img/${value.img}`}
+                className="footer__social-ico"
+                alt=""
+                title={value.title}
+              />
+            </a>
+          );
+        })}
+      </div>
+    );
   };
 
   return (
     <>
       <BtnUp />
-      <section className="row-box header-box">
-        <header className="inner header">
-          <nav className="pagination-box">
-            <input className="checkbox" ref={checked} type="checkbox" />
-            <div className="hamburger">
-              <span className="line line1"></span>
-              <span className="line line2"></span>
-              <span className="line line3"></span>
-            </div>
-            <ul className="pagination pagination__transform">
-              <li className="pagination__item">
-                <a
-                  className="pagination__link"
-                  href="#0"
-                  onClick={OnClickListLink}
-                >
-                  Главная
-                </a>
-              </li>
-              <li className="pagination__item">
-                <a
-                  className="pagination__link"
-                  href="#about"
-                  onClick={OnClickListLink}
-                >
-                  Обо мне
-                </a>
-              </li>
-              <li className="pagination__item">
-                <a
-                  className="pagination__link"
-                  href="#skills"
-                  onClick={OnClickListLink}
-                >
-                  Навыки
-                </a>
-              </li>
-              <li className="pagination__item">
-                <a
-                  className="pagination__link"
-                  href="#portfolio"
-                  onClick={OnClickListLink}
-                >
-                  Портфолио
-                </a>
-              </li>
-              <li className="pagination__item">
-                <a
-                  className="pagination__link"
-                  href="#contacts"
-                  onClick={OnClickListLink}
-                >
-                  Контакты
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-          <div className="header-content">
-            <div className="header-content__box-title">
-              <h1 className="header-content__logo">Denis Malyshev</h1>
-              <h2 className="header-content__slogan">
-                Frontend Developer 28 лет, Балаково
-              </h2>
-            </div>
-            <img
-              className="header-content__img"
-              srcSet="./img/header800x800.webp 1x, ./img/header.webp 2x"
-              alt="Картинка"
-            ></img>
-          </div>
-        </header>
-      </section>
-
+      <HeaderPage props={collectionPages} />
       <main className="main">
         <section id="about" className="row-box background-color-smoky-white">
           <div className="inner about">
             <h3 className="section__title">Обо мне</h3>
             <p className="section__text">
               Привет, я Денис – Frontend разработчик из Балаково. <br />
-              <br /> Я интересуюсь веб разработкой, и всем что с этим связанно.{" "}
+              <br /> Я интересуюсь веб разработкой, и всем что с этим связанно.
               <br />
               <br /> Я закончил курсы "Веб-разработки" в Нетология. <br />
               <br /> Готов реализовывать отличные проекты с замечательными
@@ -119,170 +150,8 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className="row-box section-skills">
-          <h3 className="section-skills__title">Навыки</h3>
-          <p className="section-skills__text">В своей работе, я использую</p>
-          <div className="section-skills__wrap inner">
-            <div className="section-skills__box-skills">
-              <img
-                src="./img/html5.svg"
-                className="section-skills__logo"
-                alt=""
-              />
-              <span className="section-skills__desc">HTML5</span>
-            </div>
-            <div className="section-skills__box-skills">
-              <img
-                src="./img/css3.svg"
-                className="section-skills__logo"
-                alt=""
-              />
-              <span className="section-skills__desc">CSS3</span>
-            </div>
-            <div className="section-skills__box-skills">
-              <img
-                src="./img/javascript.svg"
-                className="section-skills__logo"
-                alt=""
-              />
-              <span className="section-skills__desc">JavaScript</span>
-            </div>
-            <div className="section-skills__box-skills">
-              <img
-                src="./img/nodejs.svg"
-                className="section-skills__logo"
-                alt=""
-              />
-              <span className="section-skills__desc">Node.js</span>
-            </div>
-            <div className="section-skills__box-skills">
-              <img
-                src="./img/logo-react.svg"
-                className="section-skills__logo"
-                alt=""
-              />
-              <span className="section-skills__desc">React</span>
-            </div>
-            <div className="section-skills__box-skills">
-              <img
-                src="./img/react-router.svg"
-                className="section-skills__logo"
-                alt=""
-              />
-              <span className="section-skills__desc">React-Router</span>
-            </div>
-            <div className="section-skills__box-skills">
-              <img
-                src="./img/jest.svg"
-                className="section-skills__logo"
-                alt=""
-              />
-              <span className="section-skills__desc">Jest</span>
-            </div>
-            <div className="section-skills__box-skills">
-              <img
-                src="./img/webpack.svg"
-                className="section-skills__logo"
-                alt=""
-              />
-              <span className="section-skills__desc">Webpack</span>
-            </div>
-            <div className="section-skills__box-skills">
-              <img
-                src="./img/sass.svg"
-                className="section-skills__logo"
-                alt=""
-              />
-              <span className="section-skills__desc">Sass/Scss</span>
-            </div>
-            <div className="section-skills__box-skills">
-              <img
-                src="./img/npm.svg"
-                className="section-skills__logo"
-                alt=""
-              />
-              <span className="section-skills__desc">npm</span>
-            </div>
-            <div className="section-skills__box-skills">
-              <img
-                src="./img/git.svg"
-                className="section-skills__logo"
-                alt=""
-              />
-              <span className="section-skills__desc">GIT</span>
-            </div>
-            <div className="section-skills__box-skills">
-              <img
-                src="./img/github.svg"
-                className="section-skills__logo"
-                alt=""
-              />
-              <span className="section-skills__desc">GitHub</span>
-            </div>
-            <div className="section-skills__box-skills">
-              <img
-                src="./img/appveyor.svg"
-                className="section-skills__logo"
-                alt=""
-              />
-              <span className="section-skills__desc">Appveyor</span>
-            </div>
-            <div className="section-skills__box-skills">
-              <img
-                src="./img/figma.svg"
-                className="section-skills__logo"
-                alt=""
-              />
-              <span className="section-skills__desc">Figma</span>
-            </div>
-          </div>
-          <span className="section-background"></span>
-        </section>
-
-        <section
-          id="portfolio"
-          className="row-box section-portfolio background-color-smoky-white"
-        >
-          <h3 className="section-portfolio__title">Портфолио</h3>
-          <div className="section-portfolio__wrap inner">
-            <div className="section-portfolio__project">
-              <img
-                src="./img/Portfolio/Surface.webp"
-                alt=""
-                className="section-portfolio__img"
-              />
-              <p className="section-portfolio__desc">
-                Surface-landing page
-                <a
-                  href="https://dengreen.github.io/adaptiv/"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="section-portfolio__link"
-                >
-                  Перейти
-                </a>
-              </p>
-            </div>
-            <div className="section-portfolio__project">
-              <img
-                src="./img/Portfolio/MoneyManager.webp"
-                alt=""
-                className="section-portfolio__img"
-              />
-              <p className="section-portfolio__desc">
-                Money Manager - приложение для управления финансами
-                <a
-                  href="https://bhjiploma.herokuapp.com/"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="section-portfolio__link"
-                >
-                  Перейти
-                </a>
-              </p>
-            </div>
-          </div>
-        </section>
+        {addScills()}
+        {addPortfolio()}
       </main>
       <footer id="contacts" className="footer row-box">
         <div className="footer__wrap inner">
@@ -291,48 +160,7 @@ function App() {
             Хотите узнать больше или просто поболтать? Добро пожаловать!
           </p>
           <ContactUs />
-          <div className="footer__box">
-            <a href="#0" className="footer__social-link">
-              <img
-                src="./img/social_img/GitHub.svg"
-                className="footer__social-ico"
-                alt=""
-                title="GitHub"
-              />
-            </a>
-            <a href="#0" className="footer__social-link">
-              <img
-                src="./img/social_img/Skype.svg"
-                className="footer__social-ico"
-                alt=""
-                title="Skype"
-              />
-            </a>
-            <a href="#0" className="footer__social-link">
-              <img
-                src="./img/social_img/Telegram.svg"
-                className="footer__social-ico"
-                alt=""
-                title="Telegram"
-              />
-            </a>
-            <a href="#0" className="footer__social-link">
-              <img
-                src="./img/social_img/VK.svg"
-                className="footer__social-ico"
-                alt=""
-                title="VK"
-              />
-            </a>
-            <a href="#0" className="footer__social-linck">
-              <img
-                src="./img/social_img/WhatsApp.svg"
-                className="footer__social-ico"
-                alt=""
-                title="WhatsApp"
-              />
-            </a>
-          </div>
+          {addSicialLink()}
         </div>
       </footer>
     </>

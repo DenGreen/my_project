@@ -8,8 +8,8 @@ import {
   messageSending,
   messageSendingOk,
   messageReset,
-} from "../../reducers/ContactUs/ContactUsSlice";
-import ContactUsBtn from "./ContactUsBtn/ContactUsBtn";
+} from "../../reducers/ContactUs/FormForSendingMessagesSlice";
+import ContactUsBtn from "./FormForSendingMessagesBtn/ContactUsBtn";
 
 const theme = createTheme({
   palette: {
