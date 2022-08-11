@@ -62,7 +62,7 @@ body {
     align-items: center;
     flex-direction: column;
 
-    padding-top: 100px;
+    padding-top: 70px;
     padding-bottom: 100px;
 }
 
@@ -74,8 +74,10 @@ body {
 
 .section__text {
     display: block;
-    text-align: center;
+    text-align: justify;
     line-height: 22px;
+    max-width: 550px;
+    line-height: 2;
 }
 
 .section-skills {
@@ -85,14 +87,14 @@ body {
     background-repeat: no-repeat;
 
     &__title {
-        padding-top: 80px;
+        padding-top: 70px;
         font-size: 34px;
         line-height: 42px;
         z-index: 3;
     }
 
     &__text {
-        padding-top: 70px;
+        padding-top: 20px;
         text-align: center;
         z-index: 3;
     }
@@ -101,7 +103,7 @@ body {
         display: flex;
         justify-content: center;
         align-content: flex-start;
-        padding-top: 84px;
+        padding-top: 50px;
         padding-bottom: 40px;
         flex-wrap: wrap;
         row-gap: 84px;
@@ -139,7 +141,7 @@ body {
 
 .section-portfolio {
     &__title {
-        padding-top: 80px;
+        padding-top: 70px;
         font-size: 34px;
         line-height: 42px;
     }
@@ -185,7 +187,7 @@ body {
 
 .footer {
     position: relative;
-    padding-top: 100px;
+    padding-top: 70px;
     padding-bottom: 100px;
     background-color: #fff;
     z-index: 3;
@@ -202,6 +204,7 @@ body {
         text-align: center;
         padding-top: 20px;
         max-width: 500px;
+        line-height: 2;
     }
 
     &__box {

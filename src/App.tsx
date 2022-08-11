@@ -3,15 +3,14 @@ import BtnUp from "./Components/BtnUp/BtnUp";
 import ContactUs from "./Components/FormForSendingMessages/ContactUs";
 import { nanoid } from "nanoid";
 import HeaderPage from "./pages/Header/Header";
-import {ICollectionPages} from "./models";
+import { ICollectionPages } from "./models";
 
-
-const collectionPages: ICollectionPages[]= [
+const collectionPages: ICollectionPages[] = [
   { text: "Главная", href: "main", id: nanoid() },
   { text: "Обо мне", href: "about", id: nanoid() },
   { text: "Навыки", href: "skills", id: nanoid() },
   { text: "Портфолио", href: "portfolio", id: nanoid() },
-  { text: "Контакты", href: "contacts", id: nanoid() }
+  { text: "Контакты", href: "contacts", id: nanoid() },
 ];
 
 const collectionSkills = [
@@ -32,7 +31,12 @@ const collectionSkills = [
 ];
 
 const collectionPortfolio = [
-  { img: "Surface.webp", text: "Surface-landing page", link:"https://dengreen.github.io/adaptiv/", id: nanoid() },
+  {
+    img: "Surface.webp",
+    text: "Surface-landing page",
+    link: "https://dengreen.github.io/adaptiv/",
+    id: nanoid(),
+  },
   {
     img: "MoneyManager.webp",
     text: " Money Manager - приложение для управления финансами",
@@ -159,12 +163,12 @@ function App() {
           <div className="inner about">
             <h3 className="section__title">Обо мне</h3>
             <p className="section__text">
-              Привет, я Денис – Frontend разработчик из Балаково. <br />
-              <br /> Я интересуюсь веб разработкой, и всем что с этим связанно.
-              <br />
-              <br /> Я закончил курсы "Веб-разработки" в Нетология. <br />
-              <br /> Готов реализовывать отличные проекты с замечательными
-              людьми.
+              Привет, я Денис – Frontend разработчик из Балаково. Интересуюсь
+              веб разработкой, мне нравится создавать продукт которым пользуются
+              люди. Я закончил курсы "Веб-разработки" в Нетология и в данный
+              момент нахожусь в поисках работы. <br/><br/>Мои главные качества - это жажда
+              знаний и решимость. <br/>Моя цель - стать профисионалом своего дела.<br/>
+              <br/>С нетерпением жду ваши предложения!
             </p>
           </div>
         </section>
@@ -177,7 +181,8 @@ function App() {
           <h3 className="footer__title">Контакты</h3>
           <p className="footer__text">
             Буду рад расмотреть вашы предложения и ответить на вопросы.
-            <br/> Связаться со мной можно через форму обратной связи, в месенджерах и по e-mail.
+            <br /> Связаться со мной можно через форму обратной связи, в
+            месенджерах и по e-mail.
           </p>
           <ContactUs />
           {addSicialLink()}
