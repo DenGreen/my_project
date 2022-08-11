@@ -176,7 +176,8 @@ function App() {
         <div className="footer__wrap inner">
           <h3 className="footer__title">Контакты</h3>
           <p className="footer__text">
-            Хотите узнать больше или просто поболтать? Добро пожаловать!
+            Буду рад расмотреть вашы предложения и ответить на вопросы.
+            <br/> Связаться со мной можно через форму обратной связи, в месенджерах и по e-mail.
           </p>
           <ContactUs />
           {addSicialLink()}
