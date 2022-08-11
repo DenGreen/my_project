@@ -32,10 +32,29 @@ const collectionSkills = [
 ];
 
 const collectionPortfolio = [
-  { img: "Surface.webp", text: "Surface-landing page", id: nanoid() },
+  { img: "Surface.webp", text: "Surface-landing page", link:"https://dengreen.github.io/adaptiv/", id: nanoid() },
   {
     img: "MoneyManager.webp",
     text: " Money Manager - приложение для управления финансами",
+    link: "https://bhjiploma.herokuapp.com/",
+    id: nanoid(),
+  },
+  {
+    img: "Chat.webp",
+    text: "Chat - мини чат созданный с использованием WebSocket",
+    link: "https://dengreen.github.io/ahj_websockets_front/",
+    id: nanoid(),
+  },
+  {
+    img: "minitask.webp",
+    text: "Карточки корма для котов - небольшая работа на React",
+    link: "https://dengreen.github.io/QualificationTasks/",
+    id: nanoid(),
+  },
+  {
+    img: "game.webp",
+    text: "Retro Game - двухмерная игра в стиле фэнтези нарисанная на JS",
+    link: "https://dengreen.github.io/diplomfull/",
     id: nanoid(),
   },
 ];
@@ -92,7 +111,7 @@ function App() {
                 <p className="section-portfolio__desc">
                   {value.text}
                   <a
-                    href="https://dengreen.github.io/adaptiv/"
+                    href={value.link}
                     target="_blank"
                     rel="noreferrer noopener"
                     className="section-portfolio__link"
