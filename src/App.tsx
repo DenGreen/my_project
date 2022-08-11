@@ -44,7 +44,7 @@ const collectionPortfolio = [
     id: nanoid(),
   },
   {
-    img: "Chat.webp",
+    img: "chat.webp",
     text: "Chat - мини чат созданный с использованием WebSocket",
     link: "https://dengreen.github.io/ahj_websockets_front/",
     id: nanoid(),
