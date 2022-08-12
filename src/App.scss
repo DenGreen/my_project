@@ -226,7 +226,11 @@ body {
 
         &:hover {
             background-color: #7b3d42;
-         }
+
+            @media (hover: none) {
+                background-color: #414141;
+            }
+        }
     }
 
     &__social-ico {
