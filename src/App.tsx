@@ -57,18 +57,17 @@ const collectionPortfolio = [
   },
   {
     img: "game.webp",
-    text: "Retro Game - двухмерная игра в стиле фэнтези нарисанная на JS",
+    text: "Retro Game - двухмерная игра в стиле фэнтези написанная на JS",
     link: "https://dengreen.github.io/diplomfull/",
     id: nanoid(),
   },
 ];
 
 const collectionSocialLink = [
-  { img: "GitHub.svg", title: "GitHub", link: "0", id: nanoid() },
-  { img: "Skype.svg", title: "Skype", link: "0", id: nanoid() },
-  { img: "Telegram.svg", title: "Telegram", link: "0", id: nanoid() },
-  { img: "VK.svg", title: "VK", link: "0", id: nanoid() },
-  { img: "WhatsApp.svg", title: "WhatsApp", link: "0", id: nanoid() },
+  { img: "GitHub.svg", title: "GitHub", link: "https://github.com/DenGreen", id: nanoid() },
+  { img: "Skype.svg", title: "Skype", link: "https://join.skype.com/invite/oWIrdYvVX9IR", id: nanoid() },
+  { img: "Telegram.svg", title: "Telegram", link: "https://t.me/DanGreenBl", id: nanoid() },
+  { img: "WhatsApp.svg", title: "WhatsApp", link: "https://wa.me/79991802665", id: nanoid() },
 ];
 
 function App() {
@@ -131,14 +130,16 @@ function App() {
     );
   };
 
-  const addSicialLink = () => {
+  const addSocialLink = () => {
     return (
       <div className="footer__box">
         {collectionSocialLink.map((value) => {
           return (
             <a
-              href={`#${value.link}`}
+              href={`${value.link}`}
               className="footer__social-linck"
+              target="_blank"
+              rel="noreferrer noopener"
               key={value.id}
             >
               <img
@@ -185,7 +186,7 @@ function App() {
             месенджерах и по e-mail.
           </p>
           <ContactUs />
-          {addSicialLink()}
+          {addSocialLink()}
         </div>
       </footer>
     </>
