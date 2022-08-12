@@ -32,6 +32,10 @@ $auxiliary-color: #7b3d42;
         padding-top: 1.6rem;
         padding-bottom: 1.6rem;
 
+        &:active {
+            color: $auxiliary-color;
+        }
+
         &::before {
             content: "";
             height: 3px;
