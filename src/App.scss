@@ -188,7 +188,7 @@ body {
 .footer {
     position: relative;
     padding-top: 70px;
-    padding-bottom: 100px;
+    padding-bottom: 40px;
     background-color: #fff;
     z-index: 3;
 
@@ -200,7 +200,7 @@ body {
         line-height: 42px;
     }
     &__text {
-        display: block;
+        display: inline-block;
         text-align: center;
         padding-top: 20px;
         max-width: 500px;
@@ -208,7 +208,7 @@ body {
     }
 
     &__box {
-        padding-top: 85px;
+        padding-top: 40px;
         display: flex;
         justify-content: center;
         column-gap: 30px;
@@ -233,7 +233,5 @@ body {
         height: 34px;
         width: 34px;
         padding: 5px;
-
-        
     }
 }
