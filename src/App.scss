@@ -214,9 +214,26 @@ body {
         column-gap: 30px;
     }
 
-    &__social-ico {
+    &__social-linck {
+        display: flex;
         height: 40px;
         width: 40px;
+        background-color: #414141;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s;
+
+        &:hover {
+            background-color: #7b3d42;
+         }
+    }
+
+    &__social-ico {
+        height: 34px;
+        width: 34px;
+        padding: 5px;
+
+        
     }
 }
-
