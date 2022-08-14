@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ICollectionPages } from "../../models";
 import "./header.scss";
 
@@ -7,7 +7,12 @@ interface Iprops {
 }
 
 function HeaderPage({ props }: Iprops) {
+  const [logoTransform, setLogoTransform] = useState({transform: "translateX(-100vw)"})
   const checkedStatusInput = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setLogoTransform({transform: "translateX(0)"})
+  },[])
 
   const onClickGoToElement = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
@@ -66,8 +71,8 @@ function HeaderPage({ props }: Iprops) {
 
           <div className="header-content">
             <div className="header-content__box-title">
-              <h1 className="header-content__logo">Denis Malyshev</h1>
-              <h2 className="header-content__slogan">
+              <h1 className="header-content__logo" style={logoTransform}>Denis Malyshev</h1>
+              <h2 className="header-content__slogan" style={logoTransform}>
                 Frontend Developer 28 лет, Балаково
               </h2>
             </div>

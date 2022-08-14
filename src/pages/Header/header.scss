@@ -85,6 +85,7 @@ $auxiliary-color: #7b3d42;
         font-family: "Norwester", "Tahoma", sans-serif;
         color: $secondary-color;
         font-size: 2.7rem;
+        transition: 0.7s all cubic-bezier(0.18, 0.89, 0.32, 1.28);
     }
 
     &__slogan {
@@ -93,6 +94,7 @@ $auxiliary-color: #7b3d42;
         width: 220px;
         vertical-align: text-bottom;
         font-weight: normal;
+        transition: 0.8s all cubic-bezier(0.18, 0.89, 0.32, 1.28);
     }
 
     &__img {
