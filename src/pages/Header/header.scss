@@ -166,6 +166,7 @@ $auxiliary-color: #7b3d42;
         width: 98%;
         transform: translate(-150%);
         transition: transform 0.5s ease-in-out;
+        z-index: 1;
     }
 
     .checkbox:checked ~ .pagination {

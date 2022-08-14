@@ -112,6 +112,10 @@ body {
 
     &__box-skills {
         text-align: center;
+        transform: translateY(-500vh);
+        @media (hover: none) {
+            transform: translateY(0);
+        }
     }
 
     &__logo {

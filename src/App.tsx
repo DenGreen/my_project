@@ -4,6 +4,7 @@ import ContactUs from "./Components/FormForSendingMessages/ContactUs";
 import { nanoid } from "nanoid";
 import HeaderPage from "./pages/Header/Header";
 import { ICollectionPages } from "./models";
+import { useEffect, useRef, useState } from "react";
 
 const collectionPages: ICollectionPages[] = [
   { text: "Главная", href: "main", id: nanoid() },
@@ -14,20 +15,20 @@ const collectionPages: ICollectionPages[] = [
 ];
 
 const collectionSkills = [
-  { img: "html5.svg", name: "HTML", id: nanoid() },
-  { img: "css3.svg", name: "CSS", id: nanoid() },
-  { img: "javascript.svg", name: "JavaScript", id: nanoid() },
-  { img: "ts.svg", name: "TypeScript", id: nanoid() },
-  { img: "logo-react.svg", name: "React", id: nanoid() },
-  { img: "react-router.svg", name: "React-Router", id: nanoid() },
-  { img: "jest.svg", name: "Jest", id: nanoid() },
-  { img: "webpack.svg", name: "Webpack", id: nanoid() },
-  { img: "sass.svg", name: "SASS/SCSS", id: nanoid() },
-  { img: "npm.svg", name: "NPM", id: nanoid() },
-  { img: "git.svg", name: "GIT", id: nanoid() },
-  { img: "github.svg", name: "GitHub", id: nanoid() },
-  { img: "appveyor.svg", name: "Appveyor", id: nanoid() },
-  { img: "figma.svg", name: "Figma", id: nanoid() },
+  { img: "html5.svg", name: "HTML", id: nanoid(), style: {transition: "1s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"} },
+  { img: "css3.svg", name: "CSS", id: nanoid(), style: {transition: "0.8s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
+  { img: "javascript.svg", name: "JavaScript", id: nanoid(), style: {transition: "1.2s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
+  { img: "ts.svg", name: "TypeScript", id: nanoid(), style: {transition: "0.4s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
+  { img: "logo-react.svg", name: "React", id: nanoid(), style: {transition: "0.7s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
+  { img: "react-router.svg", name: "React-Router", id: nanoid(), style: {transition: "1.1s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
+  { img: "jest.svg", name: "Jest", id: nanoid(), style: {transition: "1.4s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
+  { img: "webpack.svg", name: "Webpack", id: nanoid(), style: {transition: "0.9s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
+  { img: "sass.svg", name: "SASS/SCSS", id: nanoid(), style: {transition: "0.5s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
+  { img: "npm.svg", name: "NPM", id: nanoid(), style: {transition: "0.3s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
+  { img: "git.svg", name: "GIT", id: nanoid(), style: {transition: "0.7s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
+  { img: "github.svg", name: "GitHub", id: nanoid(), style: {transition: "0.9s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
+  { img: "appveyor.svg", name: "Appveyor", id: nanoid(), style: {transition: "0.2s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
+  { img: "figma.svg", name: "Figma", id: nanoid(), style: {transition: "0.6s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
 ];
 
 const collectionPortfolio = [
@@ -71,15 +72,28 @@ const collectionSocialLink = [
 ];
 
 function App() {
+  const [skillsTransform, setSkillsTransform] = useState({});
+  const elementRef = useRef<HTMLElement>(null);
+ 
+  useEffect(() => {
+    
+    window.addEventListener("scroll", function () {
+      const valueY = elementRef.current!.getBoundingClientRect().y;
+      if(valueY < 100) setSkillsTransform({transform: "translateY(0)"})   
+    });
+  },[])
+
   const addScills = () => {
     return (
-      <section id="skills" className="row-box section-skills">
+      <section id="skills" className="row-box section-skills" ref={elementRef}>
         <h3 className="section-skills__title">Навыки</h3>
         <p className="section-skills__text">В своей работе, я использую</p>
         <div className="section-skills__wrap inner">
           {collectionSkills.map((value) => {
+            const arr = {...skillsTransform, ...value.style}
+
             return (
-              <div className="section-skills__box-skills" key={value.id}>
+              <div className="section-skills__box-skills" style={arr} key={value.id}>
                 <img
                   src={`./img/${value.img}`}
                   className="section-skills__logo"
