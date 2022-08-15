@@ -8,7 +8,7 @@ import {
   messageSending,
   messageSendingOk,
   messageReset,
-} from "../../reducers/ContactUs/FormForSendingMessagesSlice";
+} from "../../reducer/FormForSendingMessagesSlice";
 import ContactUsBtn from "./FormForSendingMessagesBtn/ContactUsBtn";
 
 const theme = createTheme({

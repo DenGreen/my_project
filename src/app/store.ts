@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import contactUsReducer from '../reducers/ContactUs/FormForSendingMessagesSlice'
+import contactUsReducer from '../reducer/FormForSendingMessagesSlice'
 
 export const store = configureStore({
   reducer: {

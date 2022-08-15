@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { RootState } from '../../app/store';
-import {SENDING, SENDING_OK, INITIAL} from "../../actions/actionTypes";
+import type { RootState } from '../app/store';
+import {SENDING, SENDING_OK, INITIAL} from "../actions/actionTypes";
 
 interface ContacState {
   value: string
