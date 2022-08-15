@@ -175,7 +175,7 @@ function App() {
               <div
                 className="section-skills__box-skills"
                 data-aos="zoom-in"
-                data-aos-duration="1000"
+                data-aos-duration="1500"
                 key={value.id}
               >
                 <img
@@ -208,7 +208,7 @@ function App() {
                 key={value.id}
                 data-aos="fade-up"
                 data-aos-anchor-placement="top-bottom"
-                data-aos-duration="1000"
+                data-aos-duration="1500"
               >
                 <img
                   src={`./img/Portfolio/${value.img}`}
