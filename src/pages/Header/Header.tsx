@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { ICollectionPages } from "../../models";
 import "./header.scss";
 
@@ -7,13 +7,7 @@ interface Iprops {
 }
 
 function HeaderPage({ props }: Iprops) {
-  const [logoTransform, setLogoTransform] = useState({transform: "translateX(-100vw)"})
   const checkedStatusInput = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    setLogoTransform({transform: "translateX(0)"})
-  },[])
-
   const onClickGoToElement = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
 
@@ -60,7 +54,11 @@ function HeaderPage({ props }: Iprops) {
       <section className="row-box header-box" id="main">
         <header className="inner header">
           <nav className="pagination-box">
-            <input className="checkbox" ref={checkedStatusInput} type="checkbox" />
+            <input
+              className="checkbox"
+              ref={checkedStatusInput}
+              type="checkbox"
+            />
             <div className="hamburger">
               <span className="line line1"></span>
               <span className="line line2"></span>
@@ -70,13 +68,20 @@ function HeaderPage({ props }: Iprops) {
           </nav>
 
           <div className="header-content">
-            <div className="header-content__box-title">
-              <h1 className="header-content__logo" style={logoTransform}>Denis Malyshev</h1>
-              <h2 className="header-content__slogan" style={logoTransform}>
+            <div
+              className="header-content__box-title"
+              data-aos="fade-down-right"
+              data-aos-duration="1500"
+            >
+              <h1 className="header-content__logo">Denis Malyshev</h1>
+              <h2 className="header-content__slogan">
                 Frontend Developer 28 лет, Балаково
               </h2>
             </div>
             <img
+              data-aos="fade-down-left"
+              data-aos-easing="linear"
+              data-aos-duration="1500"
               className="header-content__img"
               srcSet="./img/header800x800.webp 1x, ./img/header.webp 2x"
               alt="Картинка"

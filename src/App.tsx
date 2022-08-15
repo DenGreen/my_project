@@ -4,7 +4,9 @@ import ContactUs from "./Components/FormForSendingMessages/ContactUs";
 import { nanoid } from "nanoid";
 import HeaderPage from "./pages/Header/Header";
 import { ICollectionPages } from "./models";
-import { useEffect, useRef, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const collectionPages: ICollectionPages[] = [
   { text: "Главная", href: "main", id: nanoid() },
@@ -15,20 +17,90 @@ const collectionPages: ICollectionPages[] = [
 ];
 
 const collectionSkills = [
-  { img: "html5.svg", name: "HTML", id: nanoid(), style: {transition: "1s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"} },
-  { img: "css3.svg", name: "CSS", id: nanoid(), style: {transition: "0.8s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
-  { img: "javascript.svg", name: "JavaScript", id: nanoid(), style: {transition: "1.2s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
-  { img: "ts.svg", name: "TypeScript", id: nanoid(), style: {transition: "0.4s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
-  { img: "logo-react.svg", name: "React", id: nanoid(), style: {transition: "0.7s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
-  { img: "react-router.svg", name: "React-Router", id: nanoid(), style: {transition: "1.1s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
-  { img: "jest.svg", name: "Jest", id: nanoid(), style: {transition: "1.4s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
-  { img: "webpack.svg", name: "Webpack", id: nanoid(), style: {transition: "0.9s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
-  { img: "sass.svg", name: "SASS/SCSS", id: nanoid(), style: {transition: "0.5s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
-  { img: "npm.svg", name: "NPM", id: nanoid(), style: {transition: "0.3s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
-  { img: "git.svg", name: "GIT", id: nanoid(), style: {transition: "0.7s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
-  { img: "github.svg", name: "GitHub", id: nanoid(), style: {transition: "0.9s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
-  { img: "appveyor.svg", name: "Appveyor", id: nanoid(), style: {transition: "0.2s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
-  { img: "figma.svg", name: "Figma", id: nanoid(), style: {transition: "0.6s all cubic-bezier(0.18, 0.89, 0.32, 1.28)"}  },
+  {
+    img: "html5.svg",
+    name: "HTML",
+    id: nanoid(),
+    style: { transition: "1s all cubic-bezier(0.18, 0.89, 0.32, 1.28)" },
+  },
+  {
+    img: "css3.svg",
+    name: "CSS",
+    id: nanoid(),
+    style: { transition: "0.8s all cubic-bezier(0.18, 0.89, 0.32, 1.28)" },
+  },
+  {
+    img: "javascript.svg",
+    name: "JavaScript",
+    id: nanoid(),
+    style: { transition: "1.2s all cubic-bezier(0.18, 0.89, 0.32, 1.28)" },
+  },
+  {
+    img: "ts.svg",
+    name: "TypeScript",
+    id: nanoid(),
+    style: { transition: "0.4s all cubic-bezier(0.18, 0.89, 0.32, 1.28)" },
+  },
+  {
+    img: "logo-react.svg",
+    name: "React",
+    id: nanoid(),
+    style: { transition: "0.7s all cubic-bezier(0.18, 0.89, 0.32, 1.28)" },
+  },
+  {
+    img: "react-router.svg",
+    name: "React-Router",
+    id: nanoid(),
+    style: { transition: "1.1s all cubic-bezier(0.18, 0.89, 0.32, 1.28)" },
+  },
+  {
+    img: "jest.svg",
+    name: "Jest",
+    id: nanoid(),
+    style: { transition: "1.4s all cubic-bezier(0.18, 0.89, 0.32, 1.28)" },
+  },
+  {
+    img: "webpack.svg",
+    name: "Webpack",
+    id: nanoid(),
+    style: { transition: "0.9s all cubic-bezier(0.18, 0.89, 0.32, 1.28)" },
+  },
+  {
+    img: "sass.svg",
+    name: "SASS/SCSS",
+    id: nanoid(),
+    style: { transition: "0.5s all cubic-bezier(0.18, 0.89, 0.32, 1.28)" },
+  },
+  {
+    img: "npm.svg",
+    name: "NPM",
+    id: nanoid(),
+    style: { transition: "0.3s all cubic-bezier(0.18, 0.89, 0.32, 1.28)" },
+  },
+  {
+    img: "git.svg",
+    name: "GIT",
+    id: nanoid(),
+    style: { transition: "0.7s all cubic-bezier(0.18, 0.89, 0.32, 1.28)" },
+  },
+  {
+    img: "github.svg",
+    name: "GitHub",
+    id: nanoid(),
+    style: { transition: "0.9s all cubic-bezier(0.18, 0.89, 0.32, 1.28)" },
+  },
+  {
+    img: "appveyor.svg",
+    name: "Appveyor",
+    id: nanoid(),
+    style: { transition: "0.2s all cubic-bezier(0.18, 0.89, 0.32, 1.28)" },
+  },
+  {
+    img: "figma.svg",
+    name: "Figma",
+    id: nanoid(),
+    style: { transition: "0.6s all cubic-bezier(0.18, 0.89, 0.32, 1.28)" },
+  },
 ];
 
 const collectionPortfolio = [
@@ -65,35 +137,47 @@ const collectionPortfolio = [
 ];
 
 const collectionSocialLink = [
-  { img: "GitHub.svg", title: "GitHub", link: "https://github.com/DenGreen", id: nanoid() },
-  { img: "Skype.svg", title: "Skype", link: "https://join.skype.com/invite/oWIrdYvVX9IR", id: nanoid() },
-  { img: "Telegram.svg", title: "Telegram", link: "https://t.me/DanGreenBl", id: nanoid() },
-  { img: "WhatsApp.svg", title: "WhatsApp", link: "https://wa.me/79991802665", id: nanoid() },
+  {
+    img: "GitHub.svg",
+    title: "GitHub",
+    link: "https://github.com/DenGreen",
+    id: nanoid(),
+  },
+  {
+    img: "Skype.svg",
+    title: "Skype",
+    link: "https://join.skype.com/invite/oWIrdYvVX9IR",
+    id: nanoid(),
+  },
+  {
+    img: "Telegram.svg",
+    title: "Telegram",
+    link: "https://t.me/DanGreenBl",
+    id: nanoid(),
+  },
+  {
+    img: "WhatsApp.svg",
+    title: "WhatsApp",
+    link: "https://wa.me/79991802665",
+    id: nanoid(),
+  },
 ];
 
 function App() {
-  const [skillsTransform, setSkillsTransform] = useState({});
-  const elementRef = useRef<HTMLElement>(null);
- 
-  useEffect(() => {
-    
-    window.addEventListener("scroll", function () {
-      const valueY = elementRef.current!.getBoundingClientRect().y;
-      if(valueY < 100) setSkillsTransform({transform: "translateY(0)"})   
-    });
-  },[])
-
   const addScills = () => {
     return (
-      <section id="skills" className="row-box section-skills" ref={elementRef}>
+      <section id="skills" className="row-box section-skills">
         <h3 className="section-skills__title">Навыки</h3>
         <p className="section-skills__text">В своей работе, я использую</p>
         <div className="section-skills__wrap inner">
           {collectionSkills.map((value) => {
-            const arr = {...skillsTransform, ...value.style}
-
             return (
-              <div className="section-skills__box-skills" style={arr} key={value.id}>
+              <div
+                className="section-skills__box-skills"
+                data-aos="zoom-in"
+                data-aos-duration="1000"
+                key={value.id}
+              >
                 <img
                   src={`./img/${value.img}`}
                   className="section-skills__logo"
@@ -119,7 +203,13 @@ function App() {
         <div className="section-portfolio__wrap inner">
           {collectionPortfolio.map((value) => {
             return (
-              <div className="section-portfolio__project" key={value.id}>
+              <div
+                className="section-portfolio__project"
+                key={value.id}
+                data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom"
+                data-aos-duration="1000"
+              >
                 <img
                   src={`./img/Portfolio/${value.img}`}
                   alt=""
@@ -181,9 +271,12 @@ function App() {
               Привет, я Денис – Frontend разработчик из Балаково. Интересуюсь
               веб разработкой, мне нравится создавать продукт которым пользуются
               люди. Я закончил курсы "Веб-разработки" в Нетология и в данный
-              момент нахожусь в поисках работы. <br/><br/>Мои главные качества - это жажда
-              знаний и решимость. <br/>Моя цель - стать профисионалом своего дела.<br/>
-              <br/>С нетерпением жду ваши предложения!
+              момент нахожусь в поисках работы. <br />
+              <br />
+              Мои главные качества - это жажда знаний и решимость. <br />
+              Моя цель - стать профисионалом своего дела.
+              <br />
+              <br />С нетерпением жду ваши предложения!
             </p>
           </div>
         </section>

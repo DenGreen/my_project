@@ -24,9 +24,11 @@ const theme = createTheme({
 
 export default function ContactUs() {
   const form = useRef<HTMLFormElement>(null);
-  const [stateName, setStateName] = useState<{value: string}>({ value: "" });
-  const [stateEmail, setStateEmail] = useState<{value: string}>({ value: "" });
-  const [stateText, setStateText] = useState<{value: string}>({ value: "" });
+  const [stateName, setStateName] = useState<{ value: string }>({ value: "" });
+  const [stateEmail, setStateEmail] = useState<{ value: string }>({
+    value: "",
+  });
+  const [stateText, setStateText] = useState<{ value: string }>({ value: "" });
   const dispatch = useDispatch();
 
   const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,7 +86,11 @@ export default function ContactUs() {
   return (
     <form className="form" ref={form} onSubmit={sendEmail}>
       <ThemeProvider theme={theme}>
-        <div className="form__label">
+        <div
+          className="form__label"
+          data-aos="fade-right"
+          data-aos-duration="400"
+        >
           <FormControl variant="standard">
             <InputLabel htmlFor="component-simple">Имя *</InputLabel>
             <Input
@@ -98,7 +104,11 @@ export default function ContactUs() {
             />
           </FormControl>
         </div>
-        <div className="form__label">
+        <div
+          className="form__label"
+          data-aos="fade-right"
+          data-aos-duration="500"
+        >
           <FormControl variant="standard" className="form__label">
             <InputLabel htmlFor="component-simple">Email *</InputLabel>
             <Input
@@ -113,7 +123,11 @@ export default function ContactUs() {
           </FormControl>
         </div>
 
-        <div className="form__label">
+        <div
+          className="form__label"
+          data-aos="fade-right"
+          data-aos-duration="1500"
+        >
           <FormControl variant="standard">
             <TextField
               id="standard-multiline-static"
