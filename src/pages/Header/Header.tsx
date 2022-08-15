@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
 import { ICollectionPages } from "../../models";
+import Nav from "./Nav/Nav";
 import "./header.scss";
 
 interface Iprops {
@@ -7,74 +7,22 @@ interface Iprops {
 }
 
 function HeaderPage({ props }: Iprops) {
-  const checkedStatusInput = useRef<HTMLInputElement>(null);
-  const onClickGoToElement = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-
-    const navLink = event.target as HTMLLinkElement;
-    const blockID = navLink.getAttribute("href")!.slice(1);
-
-    document.getElementById(blockID)!.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
-
-  const onClickCheckboxChecked = () => {
-    checkedStatusInput.current!.checked = false;
-  };
-
-  const OnClickListLink = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    onClickGoToElement(event);
-    onClickCheckboxChecked();
-  };
-
-  const addPagination = () => {
-    return (
-      <ul className="pagination pagination__transform">
-        {props.map((value) => {
-          return (
-            <li className="pagination__item" key={value.id}>
-              <a
-                className="pagination__link"
-                href={"#" + value.href}
-                onClick={OnClickListLink}
-              >
-                {value.text}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    );
-  };
+  const collectionPages = props;
 
   return (
     <>
-      <section className="row-box header-box" id="main">
-        <header className="inner header">
-          <nav className="pagination-box">
-            <input
-              className="checkbox"
-              ref={checkedStatusInput}
-              type="checkbox"
-            />
-            <div className="hamburger">
-              <span className="line line1"></span>
-              <span className="line line2"></span>
-              <span className="line line3"></span>
-            </div>
-            {addPagination()}
-          </nav>
+      <header className="row-box header-box" id="header">
+        <section className="header">
+          <Nav props={collectionPages} />
 
-          <div className="header-content">
+          <div className="header__header-content">
             <div
-              className="header-content__box-title"
+              className="header__box-title"
               data-aos="fade-down-right"
               data-aos-duration="1500"
             >
-              <h1 className="header-content__logo">Denis Malyshev</h1>
-              <h2 className="header-content__slogan">
+              <h1 className="header__logo">Denis Malyshev</h1>
+              <h2 className="header__slogan">
                 Frontend Developer 28 лет, Балаково
               </h2>
             </div>
@@ -82,13 +30,13 @@ function HeaderPage({ props }: Iprops) {
               data-aos="fade-down-left"
               data-aos-easing="linear"
               data-aos-duration="1500"
-              className="header-content__img"
+              className="header__img"
               srcSet="./img/header800x800.webp 1x, ./img/header.webp 2x"
               alt="Картинка"
             ></img>
           </div>
-        </header>
-      </section>
+        </section>
+      </header>
     </>
   );
 }

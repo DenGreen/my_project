@@ -1,82 +1,24 @@
+@import "../../VariablesScss.scss";
 
-$text-color: #414141;
-$pagination-text-color: #828282;
-$secondary-color: #006895;
-$auxiliary-color: #7b3d42;
+.header-box {
+    min-height: 630px;
+    max-height: 937px;
+    z-index: -1;
+}
 
 .header {
     position: fixed;
     padding-bottom: 6.5rem;
-}
-
-.pagination {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid $pagination-text-color;
-    flex-wrap: wrap;
-    -webkit-tap-highlight-color: transparent;
-
-    &__item {
-        font-weight: bold;
-        text-align: center;
-        max-width: 100%;
-    }
-
-    &__link {
-        position: relative;
-        display: block;
-        color: $pagination-text-color;
-        text-decoration: none;
-        transition: all 0.5s;
-
-        padding-top: 1.6rem;
-        padding-bottom: 1.6rem;
-
-        &:active {
-            color: $auxiliary-color;
+    
+    &__header-content {
+        padding-top: 2.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    
+        @media screen and (max-width: 767px) {
+            flex-direction: column;
         }
-
-        &::before {
-            content: "";
-            height: 3px;
-            background: $auxiliary-color;
-            position: absolute;
-            bottom: 0px;
-            left: 50%;
-            right: 50%;
-            opacity: 0.6;
-            display: block;
-            transition: 0.5s;
-
-            @media (hover: none) {
-                content: none;
-            }
-        }
-
-        &:hover::before {
-            left: 0;
-            right: 0;
-        }
-    }
-
-    &__link-active {
-        color: $auxiliary-color;
-    }
-}
-
-.checkbox,
-.hamburger-lines {
-    display: none;
-}
-
-.header-content {
-    padding-top: 2.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-
-    @media screen and (max-width: 767px) {
-        flex-direction: column;
     }
 
     &__logo {
@@ -109,79 +51,3 @@ $auxiliary-color: #7b3d42;
     }
 }
 
-@media screen and (max-width: 479px) {
-    .checkbox {
-        position: absolute;
-        display: block;
-        height: 32px;
-        width: 32px;
-        top: 30px;
-        right: 17%;
-        z-index: 5;
-        opacity: 0;
-        cursor: pointer;
-    }
-
-    .hamburger {
-        height: 26px;
-        width: 32px;
-        position: absolute;
-        top: 30px;
-        right: 17%;
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .line {
-        display: block;
-        height: 4px;
-        border-radius: 10px;
-        background: $text-color;
-    }
-
-    .line1 {
-        transform-origin: 0% 0%;
-        transition: transform 0.4s ease-in-out;
-    }
-
-    .line2 {
-        transition: transform 0.2s ease-in-out;
-    }
-
-    .line3 {
-        transform-origin: 0% 100%;
-        transition: transform 0.4s ease-in-out;
-    }
-
-    .pagination {
-        position: absolute;
-        box-sizing: border-box;
-        background-color: #fff;
-        height: 100vh;
-        align-items: center;
-        flex-direction: column;
-        justify-content: flex-start;
-        width: 98%;
-        transform: translate(-150%);
-        transition: transform 0.5s ease-in-out;
-        z-index: 1;
-    }
-
-    .checkbox:checked ~ .pagination {
-        transform: translateX(0);
-    }
-
-    .checkbox:checked ~ .hamburger .line1 {
-        transform: rotate(45deg);
-    }
-
-    .checkbox:checked ~ .hamburger .line2 {
-        transform: scaleY(0);
-    }
-
-    .checkbox:checked ~ .hamburger .line3 {
-        transform: rotate(-45deg);
-    }
-}

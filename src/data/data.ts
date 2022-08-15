@@ -2,7 +2,7 @@ import { ICollectionPages, ICollectionSkills, ICollectionPortfolio, ICollectionS
 import { nanoid } from "nanoid";
 
 export const collectionPages: ICollectionPages[] = [
-  { text: "Главная", href: "main", id: nanoid() },
+  { text: "Главная", href: "header", id: nanoid() },
   { text: "Обо мне", href: "about", id: nanoid() },
   { text: "Навыки", href: "skills", id: nanoid() },
   { text: "Портфолио", href: "portfolio", id: nanoid() },

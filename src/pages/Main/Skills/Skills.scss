@@ -1,0 +1,60 @@
+.skills {
+    position: relative;
+    background-image: url("../../../img/test.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &__title {
+        padding-top: 70px;
+        font-size: 34px;
+        line-height: 42px;
+        z-index: 3;
+    }
+
+    &__text {
+        padding-top: 20px;
+        text-align: center;
+        z-index: 3;
+    }
+
+    &__wrap {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        row-gap: 84px;
+        z-index: 3;
+        padding: 50px 10px 40px 10px;
+        max-width: 940px;
+        min-width: 365px;
+    }
+
+    &__box-skills {
+        text-align: center;
+    }
+
+    &__logo {
+        width: 150px;
+        height: 80px;
+    }
+
+    &__desc {
+        display: block;
+        padding-top: 10px;
+        font-size: 0.9rem;
+        line-height: 17px;
+        font-weight: bold;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: #fff;
+        opacity: 0.9;
+    }
+}

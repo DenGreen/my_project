@@ -1,0 +1,27 @@
+.footer {
+    position: relative;
+    padding-top: 70px;
+    padding-bottom: 40px;
+    background-color: #fff;
+    z-index: 3;
+
+    &__wrap {
+        box-sizing: border-box;
+        text-align: center;
+        max-width: 940px;
+        min-width: 365px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    &__title {
+        font-size: 34px;
+        line-height: 42px;
+    }
+    &__text {
+        display: inline-block;
+        text-align: center;
+        padding-top: 20px;
+        max-width: 500px;
+        line-height: 2;
+    }
+}

@@ -1,0 +1,28 @@
+.about-box {
+    background-color: #f6f6f6;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    max-width: 940px;
+    min-width: 365px;
+    box-sizing: border-box;
+    padding: 70px 10px 100px 10px;
+
+    &__title {
+        text-align: center;
+        padding-bottom: 10px;
+        font-size: 1.9rem;
+    }
+    
+    &__text {
+        display: block;
+        text-align: justify;
+        line-height: 22px;
+        max-width: 550px;
+        line-height: 2;
+    }
+}
